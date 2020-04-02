@@ -437,36 +437,36 @@ public abstract with sharing class SObjectSelector
     /**
      * Configures a QueryFactory instance according to the configuration of this selector
      **/        
-    private QueryFactory configureQueryFactory(QueryFactory queryFactory, Boolean assertCRUD, Boolean enforceFLS, Boolean includeSelectorFields)
+    private QueryFactory configureQueryFactory(QueryFactory queryFactory1, Boolean assertCRUD, Boolean enforceFLS, Boolean includeSelectorFields)
     {
         // CRUD and FLS security required?
         if (assertCRUD)
         {
         	try { 
         		// Leverage QueryFactory for CRUD checking 
-        		queryFactory.assertIsAccessible();
+        		queryFactory1.assertIsAccessible();
         	} catch (SecurityUtils.CrudException e) {
         		// Marshal exception into DomainException for backwards compatability
 				throw new SObjectDomain.DomainException(
 	                'Permission to access an ' + getSObjectType().getDescribe().getName() + ' denied.');               		
         	}
         }
-        queryFactory.setEnforceFLS(enforceFLS);
+        queryFactory1.setEnforceFLS(enforceFLS);
                 
         // Configure the QueryFactory with the Selector fields?        
         if(includeSelectorFields)
         {
 	        // select the Selector fields and Fieldsets and set order
-            queryFactory.selectFields(getSObjectFieldList());
+            queryFactory1.selectFields(getSObjectFieldList());
 
 	        List<Schema.FieldSet> fieldSetList = getSObjectFieldSetList();
 	        if(m_includeFieldSetFields && fieldSetList != null)
 	            for(Schema.FieldSet fieldSet : fieldSetList)
-	                queryFactory.selectFieldSet(fieldSet);
+	                queryFactory1.selectFieldSet(fieldSet);
 	
 	        // Automatically select the CurrencyIsoCode for MC orgs (unless the object is a known exception to the rule)
 	        if(Userinfo.isMultiCurrencyOrganization() && CURRENCY_ISO_CODE_ENABLED)
-	            queryFactory.selectField('CurrencyIsoCode');
+	            queryFactory1.selectField('CurrencyIsoCode');
         }
         
         // Parse the getOrderBy()
@@ -482,11 +482,11 @@ public abstract with sharing class SObjectSelector
                 fieldSortOrder = QueryFactory.SortOrder.DESCENDING;
             else if(fieldSortOrderPart.equalsIgnoreCase('ASC'))
                 fieldSortOrder = QueryFactory.SortOrder.ASCENDING;
-            queryFactory.addOrdering(fieldNamePart, fieldSortOrder, orderBy.containsIgnoreCase('NULLS LAST'));
+            queryFactory1.addOrdering(fieldNamePart, fieldSortOrder, orderBy.containsIgnoreCase('NULLS LAST'));
         }           
         
-        queryFactory.setSortSelectFields(m_sortSelectFields);           
+        queryFactory1.setSortSelectFields(m_sortSelectFields);           
 
-        return queryFactory;    
+        return queryFactory1;    
     }    
 }
