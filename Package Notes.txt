@@ -1,9 +1,12 @@
-sfdx force:package:create --name "testUnlocked" -e --path force-app --packagetype Unlocked
+Steps
+    Create 1st package
+        sfdx force:package:create --name "test2GP" --path force-app --packagetype Managed
 
-sfdx force:package:list 
+    Create 2nd package
+        sfdx force:package:create --name "negro_app" --path force-app --packagetype Managed
 
-sfdx force:package:create --name "negro_app" --path force-app --packagetype Managed
-
+    List packages to check that is created
+        sfdx force:package:list 
 
 Create an Unlocked version
     sfdx force:package:version:create --package "test_Unlocked" --postinstallscript=PostInstallScript --codecoverage --installationkeybypass --wait 10 
