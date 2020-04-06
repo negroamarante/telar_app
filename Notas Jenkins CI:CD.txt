@@ -1,4 +1,9 @@
 Notas Jenkins CI/CD
 
-Init Smee on terminal
+Init Smee on terminal para usar github webhoook 
     smee --url https://smee.io/uGxlsuFTY2mYbuO --path /github-webhook/ --port 8080 
+
+
+Jenkins
+    Freestyle project
+    
