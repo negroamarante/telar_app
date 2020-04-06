@@ -13,4 +13,5 @@ Jenkins
         No puedo usar JenkinsFile
 
     Folder
+        Add "other"
         Add Pipeline
