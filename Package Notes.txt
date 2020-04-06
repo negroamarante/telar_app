@@ -1,14 +1,14 @@
 Steps
-    Create 1st package
+    Create 1st package "test2GP"
         sfdx force:package:create --name "test2GP" --path force-app --packagetype Managed
 
-    Create 2nd package
+    Create 2nd package "negro_app"
         sfdx force:package:create --name "negro_app" --path force-app --packagetype Managed
 
     List packages to check that is created
         sfdx force:package:list 
 
-Create a Managed version
+Create a Managed-Release version
     test2GP
         sfdx force:package:version:create --package "test2GP" --versionnumber 0.2.0.0 --postinstallscript=PostInstallScript --codecoverage  --installationkeybypass --wait 20
 
