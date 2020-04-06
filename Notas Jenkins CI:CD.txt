@@ -6,4 +6,7 @@ Init Smee on terminal para usar github webhoook
 
 Jenkins
     Freestyle project
-        Convert to pipeline
+        Funciona con pull request
+        No puedo usar JenkinsFile
+
+    Multi configuration project
