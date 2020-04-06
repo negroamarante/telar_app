@@ -7,3 +7,4 @@ Init Smee on terminal para usar github webhoook
 Jenkins
     Freestyle project
         Convert to pipeline
+        Check
