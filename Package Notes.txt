@@ -25,6 +25,8 @@ List all packages
     sfdx force:package:version:list
 
 
+****** UNLOCKED PACKAGES
+
 Create an Unlocked version
     sfdx force:package:version:create --package "test_Unlocked" --postinstallscript=PostInstallScript --codecoverage --installationkeybypass --wait 10 
     sfdx force:package:version:create --package "test_Unlocked" --postinstallscript=PostInstallScript --codecoverage --installationkeybypass --wait 10 --skipvalidation
