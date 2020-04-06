@@ -1,0 +1,33 @@
+sfdx force:package:create --name "testUnlocked" -e --path force-app --packagetype Unlocked
+
+sfdx force:package:list 
+
+sfdx force:package:create --name "negro_app" --path force-app --packagetype Managed
+
+
+Create an Unlocked version
+sfdx force:package:version:create --package "test_Unlocked" --postinstallscript=PostInstallScript --codecoverage --installationkeybypass --wait 10 
+sfdx force:package:version:create --package "test_Unlocked" --postinstallscript=PostInstallScript --codecoverage --installationkeybypass --wait 10 --skipvalidation
+
+    sfdx force:package:version:promote -p packageVersion --noprompt
+
+    1.0.1 packaging/installPackage.apexp?p0=04t3i000002SZfPAAW
+    1.0.2 packaging/installPackage.apexp?p0=04t3i000002SZfeAAG
+    1.0.3 packaging/installPackage.apexp?p0=04t3i000002SZfjAAG
+
+
+Create a Managed version
+test2GP
+    sfdx force:package:version:create --package "test2GP" --versionnumber 0.2.0.0 --postinstallscript=PostInstallScript --codecoverage  --installationkeybypass --wait 20
+
+        sfdx force:package:version:promote -p 04t3i000002SZhfAAG --noprompt
+        sfdx force:package:version:report --package 04t3i000002SZgcAAG
+
+negro_app
+    sfdx force:package:version:create --package "negro_app" --versionnumber 0.2.0.0 --postinstallscript=PostInstallScript --codecoverage  --installationkeybypass --wait 20 
+        
+        sfdx force:package:version:promote -p 04t3i000002SZhkAAG --noprompt
+        sfdx force:package:version:report --package 04t3i000002SZhkAAG
+
+List all packages
+    sfdx force:package:version:list

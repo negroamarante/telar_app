@@ -27,6 +27,14 @@
 @isTest
 private class SecurityUtilsTest {
 	static User setupTestUser(String profileName){
+		Organization orgDetails = [SELECT Id, LanguageLocaleKey FROM Organization];
+		if( orgDetails.LanguageLocaleKey == 'es' ){
+			if( profileName == 'Read Only'){
+				profileName = 'Sólo lectura';
+			} else {
+				profileName = 'Administrador del sistema';
+			}
+		}
 		//username global uniqueness is still enforced in tests 
 		//make sure we get something unique to avoid issues with parallel tests
 		String uniqueness = DateTime.now()+':'+Math.random();
