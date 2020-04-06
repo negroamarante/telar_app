@@ -11,4 +11,3 @@ Jenkins
 
     Multi configuration project
         No puedo usar JenkinsFile
-        
