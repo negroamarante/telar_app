@@ -8,7 +8,6 @@ Steps
     List packages to check that is created
         sfdx force:package:list 
 
-
 Create a Managed version
     test2GP
         sfdx force:package:version:create --package "test2GP" --versionnumber 0.2.0.0 --postinstallscript=PostInstallScript --codecoverage  --installationkeybypass --wait 20
