@@ -8,11 +8,6 @@ Steps
     List packages to check that is created
         sfdx force:package:list 
 
-Create an Unlocked version
-    sfdx force:package:version:create --package "test_Unlocked" --postinstallscript=PostInstallScript --codecoverage --installationkeybypass --wait 10 
-    sfdx force:package:version:create --package "test_Unlocked" --postinstallscript=PostInstallScript --codecoverage --installationkeybypass --wait 10 --skipvalidation
-
-
 Create a Managed version
     test2GP
         sfdx force:package:version:create --package "test2GP" --versionnumber 0.2.0.0 --postinstallscript=PostInstallScript --codecoverage  --installationkeybypass --wait 20
@@ -28,3 +23,8 @@ Create a Managed version
 
 List all packages
     sfdx force:package:version:list
+
+
+Create an Unlocked version
+    sfdx force:package:version:create --package "test_Unlocked" --postinstallscript=PostInstallScript --codecoverage --installationkeybypass --wait 10 
+    sfdx force:package:version:create --package "test_Unlocked" --postinstallscript=PostInstallScript --codecoverage --installationkeybypass --wait 10 --skipvalidation
