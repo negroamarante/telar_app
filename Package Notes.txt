@@ -12,14 +12,14 @@ Create a Managed-Release version
     test2GP
         sfdx force:package:version:create --package "test2GP" --versionnumber 0.2.0.0 --postinstallscript=PostInstallScript --codecoverage  --installationkeybypass --wait 20
 
-            sfdx force:package:version:promote -p 04t3i000002SZhfAAG --noprompt
-            sfdx force:package:version:report --package 04t3i000002SZgcAAG
+        sfdx force:package:version:promote -p 04t3i000002SZhfAAG --noprompt
+        sfdx force:package:version:report --package 04t3i000002SZgcAAG
 
     negro_app
         sfdx force:package:version:create --package "negro_app" --versionnumber 0.2.0.0 --postinstallscript=PostInstallScript --codecoverage  --installationkeybypass --wait 20 
             
-            sfdx force:package:version:promote -p 04t3i000002SZhkAAG --noprompt
-            sfdx force:package:version:report --package 04t3i000002SZhkAAG
+        sfdx force:package:version:promote -p 04t3i000002SZhkAAG --noprompt
+        sfdx force:package:version:report --package 04t3i000002SZhkAAG
 
 List all packages
     sfdx force:package:version:list
