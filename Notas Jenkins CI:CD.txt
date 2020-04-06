@@ -10,3 +10,4 @@ Jenkins
         No puedo usar JenkinsFile
 
     Multi configuration project
+        No puedo usar JenkinsFile
