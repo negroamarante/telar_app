@@ -15,4 +15,6 @@ Jenkins
     Folder
         Add "other"
         Add Pipeline
-        
+
+    Multi Branch Pipeline
+        Scan for branches
