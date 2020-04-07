@@ -1,11 +1,17 @@
 #!groovy
 
 node {
+    def properties = readProperties file: 'job.properties'
+    merge project properties with Jenkins env
+    applyPropertiesToEnv(properties)
+
     def BUILD_NUMBER=env.BUILD_NUMBER
     def RUN_ARTIFACT_DIR="tests/${BUILD_NUMBER}"
-    def DEV_HUB = env.SF_USERNAME
-    def CONNECTED_APP_CONSUMER_KEY = env.SF_CONSUMER_KEY
+    def DEV_HUB = properties.SF_USERNAME
+    def CONNECTED_APP_CONSUMER_KEY = properties.SF_CONSUMER_KEY
     def SERVER_KEY_CREDENTIALS_ID = env.SERVER_KEY_CREDENTIALS_ID
+
+    println DEV_HUB
 
     def toolbelt = tool 'toolbelt'
 
