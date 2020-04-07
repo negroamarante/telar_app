@@ -18,3 +18,4 @@ Jenkins
 
     Multi Branch Pipeline
         Scan for branches
+        Check events
