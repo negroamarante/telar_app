@@ -1,10 +1,6 @@
 #!groovy
 
 node {
-    
-    def properties = readProperties file: 'job.properties'
-    merge project properties with Jenkins env
-    applyPropertiesToEnv(properties)
 
     def BUILD_NUMBER=env.BUILD_NUMBER
     def RUN_ARTIFACT_DIR="tests/${BUILD_NUMBER}"
