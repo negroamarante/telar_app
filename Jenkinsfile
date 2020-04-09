@@ -9,8 +9,6 @@ node {
     def SERVER_KEY_CREDENTIALS_ID = env.SERVER_KEY_CREDENTIALS_ID
 
     println DEV_HUB
-    println BUILD_NUMBER
-    println env
 
     def toolbelt = tool 'toolbelt'
 
@@ -28,7 +26,7 @@ node {
 		}
 
         stage('Create Scratch Org') {
-            rc = sh returnStatus: true, script: "${toolbelt}/sfdx force:org:create --setdefaultusername"
+            rc = sh returnStatus: true, script: "${toolbelt}/sfdx force:org:create --definitionfile config/project-scratch-def.json --setdefaultusername"
             println rc
             if (rc != 0) {
                 error 'create scratch org error'
