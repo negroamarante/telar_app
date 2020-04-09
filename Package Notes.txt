@@ -30,3 +30,34 @@ List all packages
 Create an Unlocked version
     sfdx force:package:version:create --package "test_Unlocked" --postinstallscript=PostInstallScript --codecoverage --installationkeybypass --wait 10 
     sfdx force:package:version:create --package "test_Unlocked" --postinstallscript=PostInstallScript --codecoverage --installationkeybypass --wait 10 --skipvalidation
+
+
+
+    sfdx force:package:version:list -p negro_app  --orderby MajorVersion,MinorVersion,PatchVersion,BuildNumber
+
+=== Package Versions [4]
+Package Name  Namespace  Version Name  Version  Subscriber Package Version Id  Alias              Installation Key  Released  Validation Skipped  Ancestor  Ancestor Version  Branch
+────────────  ─────────  ────────────  ───────  ─────────────────────────────  ─────────────────  ────────────────  ────────  ──────────────────  ────────  ────────────────  ──────
+negro_app     Telar      ver 0.1       0.1.0.1  04t3i000002SZgXAAW             negro_app@0.1.0-1  false             true      false
+negro_app     Telar      ver 0.1       0.1.0.2  04t3i000002SZghAAG             negro_app@0.1.0-2  false             false     false
+negro_app     Telar      ver 0.1       0.1.0.3  04t3i000002SZgmAAG             negro_app@0.1.0-3  false             false     false
+negro_app     Telar      ver 0.1       0.2.0.0  04t3i000002SZhkAAG             negro_app@0.2.0-0  false             true      false
+
+    
+Creo una patch
+    Fix en una clase 
+
+    sfdx force:package:version:create --package "negro_app" --versionnumber 0.2.0.0 --postinstallscript=PostInstallScript --codecoverage  --installationkeybypass --wait 20 
+    sfdx force:package:version:create --package "negro_app" --postinstallscript=PostInstallScript --codecoverage  --installationkeybypass --wait 20 
+
+
+Package Name  Namespace  Version Name  Version  Subscriber Package Version Id  Alias              Installation Key  Released  Validation Skipped  Ancestor  Ancestor Version  Branch
+────────────  ─────────  ────────────  ───────  ─────────────────────────────  ─────────────────  ────────────────  ────────  ──────────────────  ────────  ────────────────  ──────
+negro_app     Telar      ver 0.1       0.1.0.1  04t3i000002SZgXAAW             negro_app@0.1.0-1  false             true      false
+negro_app     Telar      ver 0.1       0.1.0.2  04t3i000002SZghAAG             negro_app@0.1.0-2  false             false     false
+negro_app     Telar      ver 0.1       0.1.0.3  04t3i000002SZgmAAG             negro_app@0.1.0-3  false             false     false
+negro_app     Telar      ver 0.1       0.1.0.4  04t3i000002SZrDAAW             negro_app@0.1.0-4  false             false     false
+negro_app     Telar      ver 0.1       0.2.0.0  04t3i000002SZhkAAG             negro_app@0.2.0-0  false             true      false
+
+****
+ERROR running force:package:version:create:  Can’t create patch version. Log a case in the Salesforce Partner Community and request that patch versioning be enabled in the org where you created the namespace for this package.

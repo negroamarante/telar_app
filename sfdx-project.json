@@ -19,7 +19,7 @@
             "path": "force-app",
             "package": "negro_app",
             "versionName": "ver 0.1",
-            "versionNumber": "0.1.0.NEXT",
+            "versionNumber": "0.2.0.NEXT",
             "postInstallScript": "PostInstallScript",
             "default": false
         }
@@ -41,6 +41,8 @@
         "negro_app@0.1.0-3": "04t3i000002SZgmAAG",
         "test2GP@0.1.0-3": "04t3i000002SZhaAAG",
         "test2GP@0.2.0-0": "04t3i000002SZhfAAG",
-        "negro_app@0.2.0-0": "04t3i000002SZhkAAG"
+        "negro_app@0.2.0-0": "04t3i000002SZhkAAG",
+        "negro_app@0.1.0-4": "04t3i000002SZrDAAW",
+        "negro_app@0.2.0-1": "04t3i000002SZrIAAW"
     }
 }
