@@ -9,7 +9,7 @@ node {
     def SERVER_KEY_CREDENTIALS_ID = env.SERVER_KEY_CREDENTIALS_ID
 
     println DEV_HUB
-    println 'env.BRANCH_NAME 'env.BRANCH_NAME
+    // println 'env.BRANCH_NAME 'env.BRANCH_NAME
     println 'CHANGE_BRANCH 'CHANGE_BRANCH
     println 'CHANGE_TARGET 'CHANGE_TARGET
 
