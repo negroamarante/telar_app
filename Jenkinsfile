@@ -1,7 +1,6 @@
 #!groovy
 
 node {
-    
     def properties = readProperties file: 'job.properties'
     merge project properties with Jenkins env
     applyPropertiesToEnv(properties)
