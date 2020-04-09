@@ -9,10 +9,8 @@ node {
     def SERVER_KEY_CREDENTIALS_ID = env.SERVER_KEY_CREDENTIALS_ID
 
     println DEV_HUB
-    script {
-        def BRANCH = sh(returnStdout: true, script: 'git rev-parse --abbrev-ref HEAD').trim()
-        echo ${BRANCH}
-    }
+    println BUILD_NUMBER
+    println env
 
     def toolbelt = tool 'toolbelt'
 
