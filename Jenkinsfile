@@ -21,7 +21,7 @@ node {
 
     withCredentials([file(credentialsId: SERVER_KEY_CREDENTIALS_ID, variable: 'jwt_key_file')]) {
         stage('Authorize to Salesforce') {
-			rc = sh returnStatus: true, script: "${toolbelt}/sfdx force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --jwtkeyfile ${jwt_key_file} --username ${DEV_HUB} "
+			rc = sh returnStatus: true, script: "${toolbelt}/sfdx force:auth:jwt:grant -d --clientid ${CONNECTED_APP_CONSUMER_KEY} --jwtkeyfile ${jwt_key_file} --username ${DEV_HUB} "
 		    if (rc != 0) {
 			    error 'Salesforce org authorization failed.'
 		    }
