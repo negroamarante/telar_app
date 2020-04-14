@@ -10,7 +10,6 @@ node {
     echo 'BRANCH_NAME... ' + env.BRANCH_NAME
     echo 'GIT_BRANCH... ' + env.GIT_BRANCH
 
-
     def toolbelt = tool 'toolbelt'
 
     stage('checkout source') {
