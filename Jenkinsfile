@@ -7,7 +7,7 @@ node {
     def CONNECTED_APP_CONSUMER_KEY = env.SF_CONSUMER_KEY
     def SERVER_KEY_CREDENTIALS_ID = env.SERVER_KEY_CREDENTIALS_ID
 
-    println DEV_HUB
+    println 'Branch '+DEV_HUB
 
     def toolbelt = tool 'toolbelt'
 
