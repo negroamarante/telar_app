@@ -8,6 +8,10 @@ node {
     def SERVER_KEY_CREDENTIALS_ID = env.SERVER_KEY_CREDENTIALS_ID
 
     println 'Branch '+DEV_HUB
+    sh 'printenv'
+
+    echo 'Pulling... ' + env.GIT_BRANCH
+
 
     def toolbelt = tool 'toolbelt'
 
