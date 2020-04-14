@@ -28,7 +28,7 @@ node {
 		}
 
         stage('Create Scratch Org') {
-            rc = sh returnStatus: true, script: "${toolbelt}/sfdx force:org:create --definitionfile config/project-scratch-def.json --setdefaultusername"
+            rc = sh returnStatus: true, script: "${toolbelt}/sfdx force:org:create --definitionfile config/project-scratch-def.json --setdefaultusername -v ${DEV_HUB}"
             println rc
             if (rc != 0) {
                 error 'create scratch org error'
