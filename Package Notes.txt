@@ -2,62 +2,68 @@ Steps
     Create 1st package "test2GP"
         sfdx force:package:create --name "test2GP" --path force-app --packagetype Managed
 
-    Create 2nd package "negro_app"
-        sfdx force:package:create --name "negro_app" --path force-app --packagetype Managed
+    Create 2nd package "test2GP_dev" 
+        sfdx force:package:create --name "test2GP_dev" --path force-app --packagetype Managed
 
     List packages to check that is created
         sfdx force:package:list 
 
+=== Packages
+Namespace Prefix  Name           Id                  Alias        Description  Type
+────────────────  ─────────────  ──────────────────  ───────────  ───────────  ────────
+Telar             test2GP        0Ho3i000000CadYCAS                            Managed
+Telar             test2GP_dev    0Ho3i000000CadnCAC  test2GP_dev               Managed
+
 Create a Managed-Release version
-    test2GP
-        sfdx force:package:version:create --package "test2GP" --versionnumber 0.2.0.0 --postinstallscript=PostInstallScript --codecoverage  --installationkeybypass --wait 20
+    "test2GP"
+        Create a new version, and make it release
+            sfdx force:package:version:create --package "test2GP" --versionnumber 0.2.0.0 --postinstallscript=PostInstallScript --codecoverage  --installationkeybypass --wait 20
+            sfdx force:package:version:promote -p 04t3i000002SZhfAAG --noprompt
+            sfdx force:package:version:report --package 04t3i000002SZgcAAG
 
-        sfdx force:package:version:promote -p 04t3i000002SZhfAAG --noprompt
-        sfdx force:package:version:report --package 04t3i000002SZgcAAG
-
-    negro_app
-        sfdx force:package:version:create --package "negro_app" --versionnumber 0.2.0.0 --postinstallscript=PostInstallScript --codecoverage  --installationkeybypass --wait 20 
-            
-        sfdx force:package:version:promote -p 04t3i000002SZhkAAG --noprompt
-        sfdx force:package:version:report --package 04t3i000002SZhkAAG
+    "test2GP_dev"
+        Create a new version, and make it release
+            sfdx force:package:version:create --package "test2GP_dev" --versionnumber 0.2.0.0 --postinstallscript=PostInstallScript --codecoverage  --installationkeybypass --wait 20 
+            sfdx force:package:version:create --package "test2GP_dev" --postinstallscript=PostInstallScript --codecoverage  --installationkeybypass --wait 20 
+            sfdx force:package:version:promote -p 04t3i000002SZhkAAG --noprompt
+            sfdx force:package:version:report --package 04t3i000002SZhkAAG
 
 List all packages
     sfdx force:package:version:list
 
+=== Package Versions [17]
+Package Name   Namespace  Version Name  Version  Subscriber Package Version Id  Alias  Installation Key  Released  Validation Skipped  Ancestor            Ancestor Version  Branch
+─────────────  ─────────  ────────────  ───────  ─────────────────────────────  ─────  ────────────────  ────────  ──────────────────  ──────────────────  ────────────────  ──────
+test2GP        Telar      ver 0.1       0.1.0.1  04t3i000002SZfZAAW                    true              false     false
+test2GP        Telar      ver 0.1       0.1.0.2  04t3i000002SZgcAAG                    false             true      false
+test2GP        Telar      0.2.0.0       0.1.0.3  04t3i000002SZhaAAG                    false             false     false
+test2GP        Telar      ver 0.1       0.2.0.0  04t3i000002SZhfAAG                    false             true      false
 
-****** UNLOCKED PACKAGES
 
-Create an Unlocked version
-    sfdx force:package:version:create --package "test_Unlocked" --postinstallscript=PostInstallScript --codecoverage --installationkeybypass --wait 10 
-    sfdx force:package:version:create --package "test_Unlocked" --postinstallscript=PostInstallScript --codecoverage --installationkeybypass --wait 10 --skipvalidation
+====================================
 
+Example
+    sfdx force:package:version:list -p test2GP_dev  --orderby MajorVersion,MinorVersion,PatchVersion,BuildNumber
 
-
-    sfdx force:package:version:list -p negro_app  --orderby MajorVersion,MinorVersion,PatchVersion,BuildNumber
-
-=== Package Versions [4]
-Package Name  Namespace  Version Name  Version  Subscriber Package Version Id  Alias              Installation Key  Released  Validation Skipped  Ancestor  Ancestor Version  Branch
-────────────  ─────────  ────────────  ───────  ─────────────────────────────  ─────────────────  ────────────────  ────────  ──────────────────  ────────  ────────────────  ──────
-negro_app     Telar      ver 0.1       0.1.0.1  04t3i000002SZgXAAW             negro_app@0.1.0-1  false             true      false
-negro_app     Telar      ver 0.1       0.1.0.2  04t3i000002SZghAAG             negro_app@0.1.0-2  false             false     false
-negro_app     Telar      ver 0.1       0.1.0.3  04t3i000002SZgmAAG             negro_app@0.1.0-3  false             false     false
-negro_app     Telar      ver 0.1       0.2.0.0  04t3i000002SZhkAAG             negro_app@0.2.0-0  false             true      false
-
+=== Package Versions [1]
+Package Name  Namespace  Version Name  Version  Subscriber Package Version Id  Alias                Installation Key  Released  Validation Skipped  Ancestor  Ancestor Version  Branch
+────────────  ─────────  ────────────  ───────  ─────────────────────────────  ───────────────────  ────────────────  ────────  ──────────────────  ────────  ────────────────  ──────
+test2GP_dev   Telar      ver 0.1       0.1.0.1  04t3i000002SZt9AAG             test2GP_dev@0.1.0-1  false             false     false
     
+
+
 Creo una patch
     Fix en una clase 
 
-    sfdx force:package:version:create --package "negro_app" --versionnumber 0.2.0.0 --postinstallscript=PostInstallScript --codecoverage  --installationkeybypass --wait 20 
-    sfdx force:package:version:create --package "negro_app" --postinstallscript=PostInstallScript --codecoverage  --installationkeybypass --wait 20 
+    sfdx force:package:version:create --package "test2GP_dev" --versionnumber 0.1.0.1 --postinstallscript=PostInstallScript --codecoverage  --installationkeybypass --wait 20 
 
+    sfdx force:package:version:create --package "test2GP_dev" --postinstallscript=PostInstallScript --codecoverage  --installationkeybypass --wait 20 
 
-Package Name  Namespace  Version Name  Version  Subscriber Package Version Id  Alias              Installation Key  Released  Validation Skipped  Ancestor  Ancestor Version  Branch
-────────────  ─────────  ────────────  ───────  ─────────────────────────────  ─────────────────  ────────────────  ────────  ──────────────────  ────────  ────────────────  ──────
-negro_app     Telar      ver 0.1       0.1.0.1  04t3i000002SZgXAAW             negro_app@0.1.0-1  false             true      false
-negro_app     Telar      ver 0.1       0.1.0.2  04t3i000002SZghAAG             negro_app@0.1.0-2  false             false     false
-negro_app     Telar      ver 0.1       0.1.0.3  04t3i000002SZgmAAG             negro_app@0.1.0-3  false             false     false
-negro_app     Telar      ver 0.1       0.1.0.4  04t3i000002SZrDAAW             negro_app@0.1.0-4  false             false     false
-negro_app     Telar      ver 0.1       0.2.0.0  04t3i000002SZhkAAG             negro_app@0.2.0-0  false             true      false
+    sfdx force:package:version:promote -p 04t3i000002SZtEAAW --noprompt
+
 
 ****
 ERROR running force:package:version:create:  Can’t create patch version. Log a case in the Salesforce Partner Community and request that patch versioning be enabled in the org where you created the namespace for this package.
+
+Notas
+    Por cada build number 1 solo promote.

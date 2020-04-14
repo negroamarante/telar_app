@@ -9,7 +9,6 @@ node {
 
     println 'Branch '+DEV_HUB
     sh 'printenv'
-
     echo 'Pulling... ' + env.GIT_BRANCH
 
 

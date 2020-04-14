@@ -2,24 +2,17 @@
     "packageDirectories": [
         {
             "path": "force-app",
-            "package": "test_Unlocked",
-            "versionName": "ver 0.1",
-            "versionNumber": "0.1.0.NEXT",
-            "default": true
-        },
-        {
-            "path": "force-app",
             "package": "test2GP",
             "versionName": "ver 0.1",
             "versionNumber": "0.1.0.NEXT",
             "postInstallScript": "PostInstallScript",
-            "default": false
+            "default": true
         },
         {
             "path": "force-app",
-            "package": "negro_app",
+            "package": "test2GP_dev",
             "versionName": "ver 0.1",
-            "versionNumber": "0.2.0.NEXT",
+            "versionNumber": "0.1.0.NEXT",
             "postInstallScript": "PostInstallScript",
             "default": false
         }
@@ -28,21 +21,7 @@
     "sfdcLoginUrl": "https://login.salesforce.com",
     "sourceApiVersion": "48.0",
     "packageAliases": {
-        "test_Unlocked": "0Ho3i000000CadTCAS",
-        "test2GP": "0Ho3i000000CadYCAS",
-        "test_Unlocked@0.1.0-1": "04t3i000002SZfPAAW",
-        "test2GP@0.1.0-1": "04t3i000002SZfZAAW",
-        "test_Unlocked@0.1.0-2": "04t3i000002SZfeAAG",
-        "test_Unlocked@0.1.0-3": "04t3i000002SZfjAAG",
-        "negro_app": "0Ho3i000000CaddCAC",
-        "negro_app@0.1.0-1": "04t3i000002SZgXAAW",
-        "test2GP@0.1.0-2": "04t3i000002SZgcAAG",
-        "negro_app@0.1.0-2": "04t3i000002SZghAAG",
-        "negro_app@0.1.0-3": "04t3i000002SZgmAAG",
-        "test2GP@0.1.0-3": "04t3i000002SZhaAAG",
-        "test2GP@0.2.0-0": "04t3i000002SZhfAAG",
-        "negro_app@0.2.0-0": "04t3i000002SZhkAAG",
-        "negro_app@0.1.0-4": "04t3i000002SZrDAAW",
-        "negro_app@0.2.0-1": "04t3i000002SZrIAAW"
+        "test2GP_dev": "0Ho3i000000CadnCAC",
+        "test2GP_dev@0.1.0-1": "04t3i000002SZtEAAW"
     }
 }
