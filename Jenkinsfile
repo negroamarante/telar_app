@@ -7,7 +7,7 @@ node {
     def CONNECTED_APP_CONSUMER_KEY = env.SF_CONSUMER_KEY
     def SERVER_KEY_CREDENTIALS_ID = env.SERVER_KEY_CREDENTIALS_ID
 
-    println 'Branch '+DEV_HUB
+    println 'DevHub '+DEV_HUB
     sh 'printenv'
     echo 'Pulling... ' + env.GIT_BRANCH
 
