@@ -13,7 +13,10 @@ node {
     stage('checkout source') {
         // when running in multi-branch job, one must issue this command
         checkout scm
-        sh 'ls '
+        sh 'ls -a'
+        sh 'cat .forceignore'
+        sh 'cp forceignore2 .forceignore'
+        sh 'cat .forceignore'
     }
 
     withCredentials([file(credentialsId: SERVER_KEY_CREDENTIALS_ID, variable: 'jwt_key_file')]) {
